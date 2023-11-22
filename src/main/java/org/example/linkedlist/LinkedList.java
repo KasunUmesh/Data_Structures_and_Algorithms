@@ -19,19 +19,21 @@ public class LinkedList {
     }
 
     public void insertAtEnd(int data) {
-        if (head == null) {
+        if(head == null) {
             insertAtBeginning(data);
             return;
         }
+
         Node node = new Node(data);
 
         Node temp = head;
-        while (temp.next != null) {
+        while(temp.next != null) {
             temp = temp.next;
         }
 
         temp.next = node;
     }
+
 
     public void traverse() {
         Node temp = head;
@@ -80,5 +82,49 @@ public class LinkedList {
         }
 
         temp.next = null;
+    }
+
+    public void deletePosition(int position) {
+        if (head == null) {
+            System.err.println("List is empty");
+            return;
+        }
+
+        if (position == 0 ) {
+            deleteBeginning();
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 0; i < position -1; i++) {
+            temp = temp.next;
+        }
+
+        temp.next = temp.next.next;
+    }
+
+    public int size() {
+        int count = 0;
+
+        Node temp = head;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+
+        return count;
+    }
+
+    public int get(int position) {
+        if (head == null) {
+            System.err.println("List is empty");
+            return -1;
+        }
+
+        Node temp = head;
+        for (int i = 0; i < position; i++) {
+            temp = temp.next;
+        }
+        return temp.data;
     }
 }

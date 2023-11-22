@@ -25,5 +25,13 @@ public class Main {
         list.deleteAtEnd();
 
         list.traverse();
+
+        list.deletePosition(2);
+
+        list.traverse();
+
+        System.out.println("Size:" + list.size());
+
+        System.out.println("Get (2): "  + list.get(2));
     }
 }
