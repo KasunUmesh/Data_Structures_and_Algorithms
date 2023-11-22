@@ -45,7 +45,7 @@ public class Queue {
     }
 
     public boolean isFull() {
-        return rear == elementData.length -1;
+        return rear == elementData.length -1 || front > rear;
     }
 
     public void grow() {
@@ -54,6 +54,11 @@ public class Queue {
         for (int i = 0; i < temp.length; i++) {
             elementData[i] = temp[i];
         }
+    }
+
+    public void clear() {
+        front = -1;
+        rear = -1;
     }
 
     public void printQueue() {
