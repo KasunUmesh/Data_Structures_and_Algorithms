@@ -10,19 +10,10 @@ public class Stack {
     }
 
     public void push(int data) {
-        if (top == elementData.length - 1) {
+        if (isFull()) {
             grow();
         }
         elementData[++top] = data;
-    }
-
-    public void grow() {
-        int[] temp = elementData;
-
-        elementData = new int[elementData.length + 2];
-        for (int i = 0; i < temp.length; i++) {
-            elementData[i] = temp[i];
-        }
     }
 
     public int peek() {
@@ -30,7 +21,31 @@ public class Stack {
     }
 
     public int pop() {
-        return elementData[--top];
+        if (isEmpty()) {
+            System.out.println("Stack is empty");
+        }
+        return elementData[top--];
+    }
+
+    public boolean isFull() {
+        return top == elementData.length -1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public int size() {
+        return top + 1;
+    }
+
+    public void grow() {
+        int[] temp = elementData;
+
+        elementData = new int[elementData.length * 2];
+        for (int i = 0; i < temp.length; i++) {
+            elementData[i] = temp[i];
+        }
     }
 
     public void printStack() {

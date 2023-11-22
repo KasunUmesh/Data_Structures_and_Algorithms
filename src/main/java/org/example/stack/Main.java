@@ -35,5 +35,11 @@ public class Main {
         stack.push(700);
         stack.printStack();
 
+        System.out.println("size: " + stack.size());
+
+        System.out.println("Popped: " + stack.pop());
+
+        System.out.println("size: " + stack.size());
+
     }
 }
